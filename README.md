@@ -2,6 +2,8 @@
 
 一个采用 [Agent Skills 开放规范](https://agentskills.io/specification) 的中文知识型写作 Skill。它不是只给 Codex：同一份核心目录可供 Codex、Claude Code、Cursor、Gemini CLI、GitHub Copilot，以及其他兼容 Agent Skills 的宿主加载。
 
+第一次安装、不会命令行或找不到 GitHub 验证码，请直接看：[小白快速开始](docs/quickstart-cn.md)。
+
 ![六套公众号主题](docs/theme-gallery.png)
 
 ## 大白话说明
@@ -150,6 +152,10 @@ python -X utf8 skills/shuguang-writing-roundtable/scripts/validate_theme_catalog
 - 不会自动登录平台、上传资料、安装依赖、发布文章或调用付费服务。
 - `agents/openai.yaml`、某个平台的斜杠或美元符号命令都只是适配层，不是核心依赖。
 - 宿主没有某项工具时必须降级交付并说明限制，不能虚构联网、文件、图片、测试或发布结果。
+
+## 维护者发布门禁
+
+准备新版本时使用 [发布闭环清单](docs/release-checklist.md)。清单要求分别记录通用格式、远程安装、宿主实机测试和普通用户验证，发布后同步版本审计，避免旧报告继续代表新版本。
 
 ## 许可证
 
