@@ -1,0 +1,7 @@
+interface:
+  display_name: "曙光圆桌写作会议"
+  short_description: "把选题、取材、成稿、核查、审稿和发布适配组织成可回退的写作圆桌"
+  default_prompt: "Use $shuguang-writing-roundtable 把我的想法或素材做成有知识增量、经过事实核查并适配发布平台的文章。"
+
+policy:
+  allow_implicit_invocation: true
