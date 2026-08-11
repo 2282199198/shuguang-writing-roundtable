@@ -1,6 +1,6 @@
 ---
 name: shuguang-writing-roundtable
-description: "面向中文知识型内容的多角色写作、研究、审校与发布工作流。用户直接说‘曙光圆桌写作会议’‘圆桌写作’‘写作专家团’，或提出‘写公众号长文/知识型长文/深度文章、定选题、搭大纲、找论据、事实核查、证据审计、审稿、局部改稿、公众号排版、微信粘贴版、手机预览’等任务时使用。把模糊想法、素材包、提纲或已有稿件变成可发布内容，自动选择完整圆桌、快速成稿、单席会诊、修订会议或深度会议；也可通过 `$shuguang-writing-roundtable` 显式调用。用于保留原稿、只改指定段落、展示证据与待确认项的平台适配任务；不用于未经授权的账号或专有内容访问、单纯格式转换，或把未实际生成的文件冒充成交付物。"
+description: "面向中文知识型内容的多角色写作、研究、审校与发布工作流。用户直接说‘曙光圆桌写作会议’‘圆桌写作’‘写作专家团’，或提出‘写公众号长文/知识型长文/深度文章、定选题、搭大纲、找论据、事实核查、证据审计、审稿、局部改稿、公众号排版、微信粘贴版、手机预览’等任务时使用。把模糊想法、素材包、提纲或已有稿件变成可发布内容，自动选择完整圆桌、快速成稿、单席会诊、修订会议或深度会议；支持通过技能名 shuguang-writing-roundtable、中文名称或宿主提供的技能命令显式调用。用于保留原稿、只改指定段落、展示证据与待确认项的平台适配任务；不用于未经授权的账号或专有内容访问、单纯格式转换，或把未实际生成的文件冒充成交付物。"
 ---
 
 # 曙光圆桌写作会议
@@ -9,11 +9,13 @@ description: "面向中文知识型内容的多角色写作、研究、审校与
 
 ## 快速触发与使用指南
 
-安装到 Codex Skills 目录并新开一个任务后，允许以下三种调用方式：
+安装到支持 Agent Skills 的宿主并重新加载技能列表或新开会话后，允许以下三种调用方式：
 
-1. **最确定的显式调用**：输入 `$shuguang-writing-roundtable`，后面直接写任务。
-2. **中文名称调用**：说“使用曙光圆桌写作会议”“召开圆桌写作会议”或“让写作专家团处理这篇稿子”。
+1. **名称调用**：说“使用 shuguang-writing-roundtable”“使用曙光圆桌写作会议”“召开圆桌写作会议”或“让写作专家团处理这篇稿子”。
+2. **宿主命令调用**：若当前宿主提供技能选择器或显式命令，选择本 Skill 后继续写任务；不同宿主可能使用 `/技能名`、`$技能名` 或图形选择器。
 3. **自然语言自动触发**：直接提出知识型长文、选题、研究、审稿、改稿或公众号终稿需求，不要求逐字匹配固定口令。
+
+具体安装目录、命令差异和工具降级规则见 [host-compatibility.md](references/host-compatibility.md)。不支持 Agent Skills 的宿主也能把 `SKILL.md` 与本次所需参考文件作为上下文使用，但不能保证自动发现和关键词触发。
 
 按意图识别下列常用说法，不把单个宽泛词机械当作唯一依据：
 
@@ -28,13 +30,13 @@ description: "面向中文知识型内容的多角色写作、研究、审校与
 
 可直接复制这些请求：
 
-- `$shuguang-writing-roundtable 把这个模糊想法写成一篇有知识增量的公众号长文，主题和结构由你决定。`
+- `使用 shuguang-writing-roundtable，把这个模糊想法写成一篇有知识增量的公众号长文，主题和结构由你决定。`
 - `使用曙光圆桌写作会议，先给我确定选题，再查证关键事实并完成文章。`
 - `只开事实编辑席，核查这篇稿子的数字、因果关系和过时信息，不改我的观点。`
 - `保留第二、三部分，只重写开头，并说明改动理由。`
 - `把这篇文章做成公众号最终版，自动选择排版主题，交付干净粘贴版和手机预览。`
 
-用户只说一个宽泛词（例如“写作”“润色”）且没有材料或目标时，先结合上下文判断；无法判断是否需要本 Skill 时，只问一个最小澄清问题。用户明确点名本 Skill 或使用 `$shuguang-writing-roundtable` 时，直接进入流程。
+用户只说一个宽泛词（例如“写作”“润色”）且没有材料或目标时，先结合上下文判断；无法判断是否需要本 Skill 时，只问一个最小澄清问题。用户明确点名本 Skill 或使用宿主的显式技能命令时，直接进入流程。
 
 ## 坚持七条原则
 
@@ -73,6 +75,8 @@ description: "面向中文知识型内容的多角色写作、研究、审校与
 | 深度会议 | [orchestration.md](references/orchestration.md)、[question-led-research.md](references/question-led-research.md)、[evidence-and-fact-checking.md](references/evidence-and-fact-checking.md)、[quality-gates.md](references/quality-gates.md) | 有合法样文才读风格规则；需要真实平台交付才读交付规则；公众号终稿再读 [wechat-layout.md](references/wechat-layout.md) |
 
 只有长期多轮协作、需要把案卷写入文件、机器处理、严格版本追踪或运行硬校验器时，才完整读取 [contracts.md](references/contracts.md)。用户询问来源关系、准备分享或发布本 Skill 时，读取 [provenance-and-limits.md](references/provenance-and-limits.md)。正式打分时还要读取 [quality-calibration.md](references/quality-calibration.md)。
+
+用户询问安装、跨平台迁移、显式调用、自动触发或当前工具不足时，读取 [host-compatibility.md](references/host-compatibility.md)。
 
 ## 建立圆桌简报
 
@@ -178,9 +182,9 @@ description: "面向中文知识型内容的多角色写作、研究、审校与
 
 不要把内部 JSON 当作默认用户界面。需要长期协作、机器处理或用户明确要求时，再按 [contracts.md](references/contracts.md) 输出结构化案卷。
 
-## 必要时运行硬校验
+## 工具可用时运行硬校验
 
-脚本只负责可机械判断的底线，不代替编辑判断：
+脚本只负责可机械判断的底线，不代替编辑判断。宿主具备文件访问、终端和 Python 3.10+，且任务需要真实文件或可复核交付时再运行：
 
 - 保存结构化案卷后，运行 `python -X utf8 scripts/validate_casefile.py <casefile.json>`。
 - 要求局部修改且存在稳定段落 ID 时，运行 `python -X utf8 scripts/validate_revision.py --before <旧稿> --after <新稿> --locked <ID>`；每个锁定 ID 重复传入一次。
@@ -188,7 +192,9 @@ description: "面向中文知识型内容的多角色写作、研究、审校与
 - 交付公众号公开终稿时，额外运行 `python -X utf8 scripts/validate_delivery.py <正文片段.html> --wechat-public-final`；它同时执行微信片段检查并拦截公开正文中的文末参考资料标题。若用户明确要求公开来源，改用 `--wechat-fragment` 并在交付说明中记录例外原因。若使用 `gzh-design`，还要运行其 `scripts/validate_gzh_html.py` 做第二道平台兼容检查。
 - 使用固定主题时，运行 `python -X utf8 scripts/validate_theme_catalog.py`；需要人工选型时运行 `python -X utf8 scripts/render_theme_gallery.py` 生成六套主题总览。用 `scripts/wrap_wechat_preview.py` 生成预览外壳，禁止把预览网页本身当作公众号粘贴片段。
 
-校验失败时不得宣布 `ready`；先修复，或把状态降为 `ready_with_caveats/blocked` 并说明未通过项。Windows 中文环境统一使用 `python -X utf8`。
+校验失败时不得宣布 `ready`；先修复，或把状态降为 `ready_with_caveats/blocked` 并说明未通过项。命令中的 `python` 可按环境替换为 `python3` 或解释器绝对路径；Windows 中文环境优先使用 `python -X utf8`。
+
+宿主没有终端或 Python 时，不阻塞纯写作、研究、审稿和人工排版，但不得声称已完成机器校验。按相同质量门人工检查，并明确写出“未运行哪些校验、会影响什么”；需要强校验的真实文件交付降为 `ready_with_caveats`。
 
 ## 判停条件
 

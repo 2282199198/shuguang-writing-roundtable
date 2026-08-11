@@ -10,7 +10,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL = ROOT / "skill" / "shuguang-writing-roundtable"
+SKILL = ROOT / "skills" / "shuguang-writing-roundtable"
 TEXT_SUFFIXES = {".md", ".py", ".yaml", ".yml", ".json", ".html", ".txt"}
 
 
@@ -18,6 +18,8 @@ class PublicPackageTests(unittest.TestCase):
     def test_required_skill_files_exist(self) -> None:
         self.assertTrue((SKILL / "SKILL.md").is_file())
         self.assertTrue((SKILL / "agents" / "openai.yaml").is_file())
+        self.assertTrue((SKILL / "references" / "host-compatibility.md").is_file())
+        self.assertTrue((SKILL / "LICENSE.txt").is_file())
         self.assertTrue((ROOT / "README.md").is_file())
         self.assertTrue((ROOT / "LICENSE").is_file())
 
@@ -29,6 +31,10 @@ class PublicPackageTests(unittest.TestCase):
         keys = [line.split(":", 1)[0].strip() for line in match.group(1).splitlines() if ":" in line]
         self.assertEqual(keys, ["name", "description"])
         self.assertIn("name: shuguang-writing-roundtable", text)
+        self.assertEqual(SKILL.name, "shuguang-writing-roundtable")
+        description_line = next(line for line in match.group(1).splitlines() if line.startswith("description:"))
+        description = description_line.split(":", 1)[1].strip().strip('"')
+        self.assertLessEqual(len(description), 1024)
 
     def test_trigger_metadata_and_in_skill_usage_guide(self) -> None:
         text = (SKILL / "SKILL.md").read_text(encoding="utf-8")
@@ -43,17 +49,35 @@ class PublicPackageTests(unittest.TestCase):
             "知识型长文",
             "事实核查",
             "公众号排版",
-            "$shuguang-writing-roundtable",
+            "shuguang-writing-roundtable",
         ]:
             self.assertIn(phrase, description)
 
         self.assertIn("## 快速触发与使用指南", text)
-        self.assertIn("最确定的显式调用", text)
+        self.assertIn("宿主命令调用", text)
         self.assertIn("自然语言自动触发", text)
+        self.assertIn("host-compatibility.md", text)
 
         agent_yaml = (SKILL / "agents" / "openai.yaml").read_text(encoding="utf-8")
         self.assertIn('default_prompt: "Use $shuguang-writing-roundtable ', agent_yaml)
         self.assertIn("allow_implicit_invocation: true", agent_yaml)
+
+    def test_open_agent_skills_layout_and_cross_host_guide(self) -> None:
+        self.assertEqual(SKILL.parent.name, "skills")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        guide = (SKILL / "references" / "host-compatibility.md").read_text(encoding="utf-8")
+
+        self.assertIn("Agent Skills 开放规范", readme)
+        self.assertNotIn("一个面向 Codex 的公开写作 Skill", readme)
+        self.assertNotIn("当前公开验收以 Codex 为准", readme)
+        for host in ["Codex", "Claude Code", "Cursor", "Gemini CLI", "GitHub Copilot"]:
+            self.assertIn(host, readme)
+            self.assertIn(host, guide)
+
+        self.assertIn("--agent universal --scope user", readme)
+        self.assertIn("不支持 Agent Skills", readme)
+        self.assertIn("只是 Codex/OpenAI 界面的可选增强", guide)
+        self.assertIn("未运行机器校验", guide)
 
     def test_no_private_material_or_secret_shapes(self) -> None:
         forbidden_literals = [

@@ -11,7 +11,7 @@ from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
-SKILL = ROOT / "skill" / "shuguang-writing-roundtable"
+SKILL = ROOT / "skills" / "shuguang-writing-roundtable"
 FIXTURES = HERE / "fixtures"
 OUTPUTS = HERE / "outputs"
 
