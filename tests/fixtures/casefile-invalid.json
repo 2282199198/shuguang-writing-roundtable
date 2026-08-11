@@ -1,0 +1,15 @@
+{
+  "run_id": "bad-case",
+  "mode": "everything",
+  "current_stage": "delivery",
+  "approved_decisions": [],
+  "assumptions": [],
+  "open_questions": [],
+  "locked_content": [],
+  "must_fix": ["关键数字仍无来源"],
+  "revision_log": [],
+  "next_action": "",
+  "questions": [{"question_id": "Q1", "claim_ids": ["C404"]}],
+  "claims": [{"claim_id": "C1"}],
+  "deliveries": [{"delivery_id": "DEL1", "ready_status": "ready"}]
+}

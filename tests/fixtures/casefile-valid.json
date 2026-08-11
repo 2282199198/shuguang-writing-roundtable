@@ -1,0 +1,19 @@
+{
+  "run_id": "RT-20260810-01",
+  "mode": "deep",
+  "current_stage": "delivery",
+  "brief_version": "B1",
+  "research_map_version": "RM1",
+  "approved_decisions": ["解释公共图书馆延长开放的条件，不承诺普遍效果"],
+  "assumptions": ["目标读者为城市公共服务关注者"],
+  "open_questions": ["尚无本地读者反馈"],
+  "locked_content": ["核心命题"],
+  "must_fix": [],
+  "revision_log": ["D1 到 D2：删除没有来源的效果保证"],
+  "next_action": "等待作者审阅",
+  "briefs": [{"brief_id": "B1", "task": "完成知识型长文"}],
+  "questions": [{"question_id": "Q1", "question": "延长开放需要哪些条件？", "claim_ids": ["C1"], "source_ids": ["S1"]}],
+  "claims": [{"claim_id": "C1", "claim_text": "延长开放需要人员、安全和预算安排", "question_ids": ["Q1"], "source_ids": ["S1"]}],
+  "sources": [{"source_id": "S1", "title": "城市公共服务公告"}],
+  "deliveries": [{"delivery_id": "DEL1", "ready_status": "ready_with_caveats", "primary_artifact": "article.md"}]
+}
