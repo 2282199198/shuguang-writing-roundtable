@@ -1,0 +1,216 @@
+{
+  "schema_version": "1.0",
+  "pack_name": "曙光圆桌公众号固定主题",
+  "image_provider": "OpenAI Image 2.0",
+  "default_theme": "graphite-knowledge",
+  "selection_rule": "按文章的主读者任务与核心承诺选主题，不按单个关键词机械匹配。",
+  "global_constraints": {
+    "max_visual_levels": 3,
+    "max_accent_moments": 3,
+    "body_font_px": 15,
+    "body_line_height": 1.8,
+    "background_is_optional": true,
+    "paste_fragment_must_work_without_background": true
+  },
+  "themes": [
+    {
+      "id": "graphite-knowledge",
+      "name_cn": "曙光石墨",
+      "positioning": "理性、克制、可信的知识杂志风",
+      "route": {
+        "best_for": ["AI", "教育", "专业观点", "知识长文", "复杂议题分析"],
+        "avoid_when": ["强情绪个人故事", "纯操作清单"],
+        "keywords": ["AI", "教育", "趋势", "判断", "长期", "研究", "分析"]
+      },
+      "palette": {
+        "canvas": "#FAFAF8",
+        "text": "#27272A",
+        "body": "#52525B",
+        "muted": "#8A8780",
+        "primary": "#52525B",
+        "accent": "#F97316",
+        "card": "#F4F2ED",
+        "line": "#DDD9D1"
+      },
+      "typography": {"body_px": 15, "line_height": 1.8, "section_title_px": 20, "subheading_px": 15},
+      "components": {
+        "opening": "暖白纸面、上下细线、先给核心判断",
+        "section_heading": "浅灰大号序号 + 英文眉题 + 20px 中文标题",
+        "subheading": "石墨灰左边线，不使用彩色底板",
+        "quote": "石墨灰左边线；全文最多三处晨光橙强调",
+        "highlight": "浅暖灰底的小型行内标签",
+        "list": "深灰圆点或数字，说明文字降一级",
+        "divider": "1px 暖灰细线"
+      },
+      "backgrounds": [
+        {"role": "portrait-master", "file": "backgrounds/graphite-knowledge.png", "status": "generated", "safe_zone": "center 60%"},
+        {"role": "opening-banner", "file": "backgrounds/graphite-knowledge-banner.png", "status": "generated", "safe_zone": "upper-left 55%"}
+      ]
+    },
+    {
+      "id": "dawn-amber",
+      "name_cn": "晨曦金",
+      "positioning": "温暖、明亮、有希望但不过度煽情",
+      "route": {
+        "best_for": ["家庭教育", "成长", "亲子", "长期主义", "温暖观点"],
+        "avoid_when": ["高密度技术教程", "严肃风险通报"],
+        "keywords": ["家庭", "孩子", "成长", "陪伴", "希望", "未来"]
+      },
+      "palette": {
+        "canvas": "#FFFDF8",
+        "text": "#2E2A25",
+        "body": "#5D5349",
+        "muted": "#9A8B78",
+        "primary": "#A16207",
+        "accent": "#F59E0B",
+        "card": "#FFF4D8",
+        "line": "#E9D8B4"
+      },
+      "typography": {"body_px": 15, "line_height": 1.82, "section_title_px": 20, "subheading_px": 15},
+      "components": {
+        "opening": "奶油色纸面、柔和金色顶线、核心句先行",
+        "section_heading": "琥珀序号 + 深棕标题 + 短横线",
+        "subheading": "金棕左边线与充足留白",
+        "quote": "浅杏色底、琥珀左边线",
+        "highlight": "淡金底行内标签",
+        "list": "琥珀圆点，正文保持深棕",
+        "divider": "1px 沙金细线"
+      },
+      "backgrounds": [
+        {"role": "portrait-master", "file": "backgrounds/dawn-amber.png", "status": "generated", "safe_zone": "center 62%"}
+      ]
+    },
+    {
+      "id": "ink-academy",
+      "name_cn": "青墨书院",
+      "positioning": "安静、书卷、人文的现代水墨风",
+      "route": {
+        "best_for": ["人文", "读书", "文化", "教育思考", "历史"],
+        "avoid_when": ["强增长营销", "硬核科技快讯"],
+        "keywords": ["读书", "文化", "人文", "历史", "经典", "思考"]
+      },
+      "palette": {
+        "canvas": "#F7F8F5",
+        "text": "#23332B",
+        "body": "#4E5C54",
+        "muted": "#89938D",
+        "primary": "#4A5D52",
+        "accent": "#B59A6A",
+        "card": "#EEF1EC",
+        "line": "#D7DDD7"
+      },
+      "typography": {"body_px": 15, "line_height": 1.86, "section_title_px": 20, "subheading_px": 15},
+      "components": {
+        "opening": "米白宣纸感、青墨细线、克制眉题",
+        "section_heading": "小号章节题签 + 深青标题",
+        "subheading": "青墨左边线，不使用圆角胶囊",
+        "quote": "淡青灰底、细金点睛",
+        "highlight": "浅青灰底的短语强调",
+        "list": "方形小墨点，行距偏松",
+        "divider": "短青墨线 + 大留白"
+      },
+      "backgrounds": [
+        {"role": "portrait-master", "file": "backgrounds/ink-academy.png", "status": "generated", "safe_zone": "center 58%"}
+      ]
+    },
+    {
+      "id": "ocean-tech",
+      "name_cn": "深海智蓝",
+      "positioning": "清晰、前瞻、可信的科技信息风",
+      "route": {
+        "best_for": ["AI科技", "商业", "产业趋势", "数字化", "未来工作"],
+        "avoid_when": ["怀旧散文", "亲密家庭叙事"],
+        "keywords": ["科技", "商业", "产业", "数据", "系统", "数字化"]
+      },
+      "palette": {
+        "canvas": "#F6F9FC",
+        "text": "#12233F",
+        "body": "#40516B",
+        "muted": "#7C8BA1",
+        "primary": "#2563EB",
+        "accent": "#38BDF8",
+        "card": "#EAF3FF",
+        "line": "#CFE0F4"
+      },
+      "typography": {"body_px": 15, "line_height": 1.78, "section_title_px": 20, "subheading_px": 15},
+      "components": {
+        "opening": "冰蓝白底、深蓝顶线、结论型开场",
+        "section_heading": "蓝色序号 + 深海蓝标题 + 信息细线",
+        "subheading": "深蓝左边线",
+        "quote": "淡蓝卡片、左侧蓝色强调",
+        "highlight": "淡蓝底短语标签",
+        "list": "蓝色数字节点，避免霓虹效果",
+        "divider": "1px 冷蓝细线"
+      },
+      "backgrounds": [
+        {"role": "portrait-master", "file": "backgrounds/ocean-tech.png", "status": "generated", "safe_zone": "center 60%"}
+      ]
+    },
+    {
+      "id": "warm-journal",
+      "name_cn": "暖纸手记",
+      "positioning": "真诚、有人味、适合故事与复盘",
+      "route": {
+        "best_for": ["个人故事", "案例", "复盘", "随笔", "经验分享"],
+        "avoid_when": ["机构白皮书", "高风险事实说明"],
+        "keywords": ["故事", "经历", "案例", "复盘", "感受", "选择"]
+      },
+      "palette": {
+        "canvas": "#FFF9F1",
+        "text": "#45362C",
+        "body": "#675548",
+        "muted": "#A08A79",
+        "primary": "#C26A3A",
+        "accent": "#E8B98C",
+        "card": "#FBEADB",
+        "line": "#E8CEB9"
+      },
+      "typography": {"body_px": 15, "line_height": 1.86, "section_title_px": 20, "subheading_px": 15},
+      "components": {
+        "opening": "暖象牙底、赤陶色小标签、从具体场景开篇",
+        "section_heading": "手记式眉题 + 深棕标题",
+        "subheading": "赤陶左边线与小段留白",
+        "quote": "浅陶纸块感，不使用引号图标堆叠",
+        "highlight": "焦糖浅底短语",
+        "list": "赤陶圆点，说明文字柔和降级",
+        "divider": "短赤陶线 + 暖白留白"
+      },
+      "backgrounds": [
+        {"role": "portrait-master", "file": "backgrounds/warm-journal.png", "status": "generated", "safe_zone": "center 56%"}
+      ]
+    },
+    {
+      "id": "sage-lab",
+      "name_cn": "松石研究所",
+      "positioning": "清楚、实用、方法感强的知识工具风",
+      "route": {
+        "best_for": ["方法论", "教程", "清单", "工具", "研究步骤"],
+        "avoid_when": ["纯抒情散文", "娱乐热点"],
+        "keywords": ["方法", "教程", "步骤", "清单", "工具", "框架"]
+      },
+      "palette": {
+        "canvas": "#F5FAF7",
+        "text": "#173F35",
+        "body": "#46665D",
+        "muted": "#7F9A91",
+        "primary": "#059669",
+        "accent": "#6EE7B7",
+        "card": "#E7F7EF",
+        "line": "#C8E4D7"
+      },
+      "typography": {"body_px": 15, "line_height": 1.8, "section_title_px": 20, "subheading_px": 15},
+      "components": {
+        "opening": "暖白与浅薄荷底、先给方法结果",
+        "section_heading": "绿色步骤号 + 深松石标题",
+        "subheading": "松石左边线",
+        "quote": "浅薄荷方法卡",
+        "highlight": "淡绿底关键词标签",
+        "list": "绿色数字节点或勾选项，但不混用",
+        "divider": "1px 浅松石细线"
+      },
+      "backgrounds": [
+        {"role": "portrait-master", "file": "backgrounds/sage-lab.png", "status": "generated", "safe_zone": "center 62%"}
+      ]
+    }
+  ]
+}
